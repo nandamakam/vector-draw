@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+	<meta charset="UTF-8" />
+	<title>Vector Draw</title>
+	
+	<script>
+		
+		window.applicationCache.addEventListener('updateready',function(){
+			window.location = window.location;
+		},false);
+	</script>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon-precomposed" href="images/icon_57.png" />
+	<link rel="apple-touch-icon-precomposed" href="images/icon_72.png" sizes="72x72" />
+	<link rel="apple-touch-icon-precomposed" href="images/icon_114.png" sizes="114x114" />
+	<link rel="stylesheet" href="css/style.css" />
+	
+	<script src="js/production/browser.js"></script>
+</head>
+<body id="mode_home">
+	<div id="preload">
+		<img src="images/icons.png" alt="" />
+		<img src="images/slider_icons.png" alt="" />
+		<img src="images/colorspace.png" alt="" />
+		<img src="images/spectrum.png" alt="" />
+		<img src="images/spectrum-handle.png" alt="" />
+	</div>
+	<header id="app_header" class="toolbar">
+		<div class="toolbar_wrapper">
+			<div id="header_home">
+				<button type="button" class="edit hidden">Edit</button>
+				<h1>Vector Draw</h1>
+				<button type="button" class="login">Log in</button>
+			</div>
+			
+			<div id="header_draw">
+				<div id="color" class="colorbox"></div>
+				<div id="swatches">
+					<div class="colorbox"></div>
+					<div class="colorbox"></div>
+					<div class="colorbox"></div>
+					<div class="colorbox"></div>
+					<div class="colorbox"></div>
+					<div class="colorbox"></div>
+				</div>
+				
+				<div id="colorpicker" class="colorpicker">
+					<p class="message">All the swatches are filled. Choose one to replace.</p>
+					<div class="colorspace">
+						<div class="marker"></div>
+						<img src="images/colorspace.png" alt="" />
+					</div>
+					<div class="spectrum slider">
+						<div class="slider-bg">
+							<div class="marker slider-handle"></div>
+						</div>
+					</div>
+					<div class="buttons">
+						<button type="button" class="add-swatch">Add Swatch</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<section id="app_content">
+		<div id="home">
+			<div class="home_content">
+				<div class="grid">
+					<div class="image new active"><b>+</b><br />New Image</div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+					<div class="image"></div>
+				</div>
+			</div>
+		</div>
+		<div id="draw">
+			<div class="toolbar_wrapper">
+				<div class="tooltips">
+					<p class="color tip_up">Choose color</p>
+					<p class="swatches tip_up">Easily switch between colors with swatches.<br /> Add swatches from the color picker.</p>
+					<p class="size tip_down">Brush size</p>
+					<p class="opacity tip_down">Brush opacity</p>
+					<p class="info info_desktop">Right click on canvas<br />to hide the toolbars<br /><small>(click to hide tooltips)</small></p>
+					<p class="info info_android">Hiding the toolbars is<br />not available on Android<br /><small>(tap to hide tooltips)</small></p>
+					<p class="info info_ios">Tap with two fingers<br />to hide the toolbars<br /><small>(tap to hide tooltips)</small></p>
+				</div>
+			</div>
+			<div class="message"></div>
+			<div class="brush_size"></div>
+			<canvas id="stage" width="320" height="480"></canvas>
+		</div>
+	</section>
+	
+	<footer id="app_footer" class="toolbar">
+		<div id="footer_home"></div>
+		
+		<div id="footer_draw">
+			<div class="toolbar_wrapper">
+				<div id="size" class="slider">
+					<div class="slider-bg">
+						<div class="slider-handle"></div>
+					</div>
+				</div>
+				<div id="opacity" class="slider">
+					<div class="slider-bg">
+						<div class="slider-handle"></div>
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<div class="toolbar_wrapper">
+					<button type="button" class="home"><span></span>Home</button>
+					<button type="button" class="undo disabled"><span></span>Undo</button>
+					<button type="button" class="redo disabled"><span></span>Redo</button>
+					<button type="button" class="save"><span></span>Save</button>
+				</div>
+			</div>
+			<div class="save_box">
+				<div class="toolbar_wrapper save_choices">
+					<h2>Browser storage</h2>
+					<p>The image is stored in the browser's own local storage, and will only be available from this browser.</p>
+					<h2>Cloud storage</h2>
+					<p>The image is stored on the app server, and will be available with a password from any browser.</p>
+					<button type="button" class="save_local">Save to browser storage</button>
+					<button type="button" class="save_cloud">Save to cloud storage</button>
+					<button type="button" class="save_cancel">Cancel</button>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<script src="js/production/app-combined.js"></script>
+</body>
+</html>
